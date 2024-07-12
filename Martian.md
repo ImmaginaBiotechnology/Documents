@@ -131,7 +131,7 @@ psite_from_cds_stop | rate
 
 These two files contains the rate of the reads' p-site with respect to start and stop positions of transcripts' cds. To get this result all the reads are grouping with respect to their relative distance from start and stop positions in every transcript. Then for every distance value the ratio of total reads in that specific distance divided by total number of the reads. If we have to formulate this;
 
-$$\textrm{Distance Ratio From CDS Start}  = \left(\sum_{k=1}^m \sum_{l=1}^n \textrm{p-sites in }transcript_k(nucleotide_l) \right) / \left( \sum /textrm{p-site} \right)$$
+$$\textrm{Distance Ratio From CDS Start}  = \left(\sum_{k=1}^m \sum_{l=1}^n \textrm{p-sites in }transcript_k(nucleotide_l) \right) / \left( \sum \textrm{p-site} \right)$$
  where k = transcript, n = nucleotide position with respect to relative CDS starts
 
 ### *"Sample"*_coverages.lz4
