@@ -3,7 +3,7 @@
 ## Calculation of the P-sites
 In Martian p-sites are identifying by the calculated p-site offsets in each different length of reads. These p-site offsets are calculating by the distance of 'ATG' codons from the relative start positions of transcripts in each read length. You can see the explanatory diagram below;
 
-"DIAGRAM"
+![Martian_psite_offset_calc](Visuals/Martian_psite_offset_calc.jpg)
 
 ## Results
 
