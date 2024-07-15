@@ -51,6 +51,10 @@ log2FoldChannge RNASeq is between (-1,1) and log2 FoldChange RiboSeq is between 
 
 The results are contains 3 PCA plots "Sample", "RNASeq" and "RiboSeq". Sample is the results of PCA analysis of all given samples (RiboSeq + RNASeq for each Control and Treated) while RNASeq and RiboSeq contains results of RiboSeq and RNASeq samples respectively.
 
+![pca_sample](/Visuals/PCA_Sample.jpg)
+![pca_ribo](/Visuals/PCA_RiboSeq.jpg)
+![pca_rna](/Visuals/PCA_RNASeq.jpg)
+
 
 ## Directional Plot
 
@@ -58,4 +62,8 @@ The results are contains 3 PCA plots "Sample", "RNASeq" and "RiboSeq". Sample is
 
 This is the visualized version of the differential expression data. Each dot represents a gene, X-Axis shows the log2FoldChanges in RiboSeq and Y-Axis shows log2FoldChanges in RNASeq and genes are labeled with respect to their movement.
 
+## Volcano Plot
 
+![volcano](/Visuals/VolcanoPlot.jpg)
+
+This Volcano Plot is visualized version of the translation efficiency data. Each dot represents a gene, X-Axis show log2 FoldChanges and Y-Axis shows Adjusted P-Values('Benjamini-Hochberg') in -log10 scale.
