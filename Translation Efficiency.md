@@ -47,6 +47,15 @@ log2FoldChannge RNASeq is between (-1,1) and log2 FoldChange RiboSeq is between 
 
 ## Plots
 
+## Prencipal Component Analysis (PCA) Plots
+
+The results are contains 3 PCA plots "Sample", "RNASeq" and "RiboSeq". Sample is the results of PCA analysis of all given samples (RiboSeq + RNASeq for each Control and Treated) while RNASeq and RiboSeq contains results of RiboSeq and RNASeq samples respectively.
+
+
 ## Directional Plot
 
 ![directional](/Visuals/DirectionalPlot.jpg)
+
+This is the visualized version of the differential expression data. Each dot represents a gene, X-Axis shows the log2FoldChanges in RiboSeq and Y-Axis shows log2FoldChanges in RNASeq and genes are labeled with respect to their movement.
+
+
