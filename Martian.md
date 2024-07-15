@@ -162,3 +162,53 @@ result = coverageData.filter(polars.col("transcriptID") == "ENST00000420542").se
 ```
 
 
+## Plots
+
+Each plot in this section is reporting in HTML format and each of them has interactive properties and downloadable as **Scalable Vector Graphics (.svg)** from the html report itself. In here static plots are used to explain meanings of each plot.
+
+### Length Distribution Plot
+
+![lenDist](Visuals/lengthDistribution.svg)
+
+Length Distribution plot shows how frequency of read lengths of RPFs in the given sample. Since RiboLace GelFree kit (https://www.immaginabiotech.com/our-technologies/ribolace) allows longer reads detection disome lengths can be seen in this plot. Martian is designed to be able to do analysis for also disome length RPFs.
+
+### Read Region & Frame Plot
+
+![readRegion](Visuals/readSiteFrame.svg)
+
+Read Region & Frame plot gives information about the region (5'UTRs,CDS or 3'UTRs) of the RPFs in their respective transcripts in the samples. The percentages with respect to total number of reads can be seen in the bottom right part of each panel.
+
+### Metaprofile Plot
+
+![metaprofile](Visuals/metaprofilePlot.svg)
+
+Metaprofile plot contains two sub-plot. Left side of metaprofile plot shows the distance from relative start for each transcript, and for each nucleotide position the frequency shows the ratio of how many p-site (each p-site from an individual RPF) found in that specific location between total number of RPFs. Right side of metaprofile shows the distance from the relative stop position for each transcripts and the ratio of p-site in each nucleotide position between totoal number of RPFs.
+
+### Heatmap"s"
+
+Martian results contains two different heatmaps. Both heapmaps contains read lengths of RPFs that can found in the sample in the Y-Axis and frame information of those reads in the X-Axis. The difference between them while total-Heatmap shows the values that normalized in total number of RPFs, row-Heatmap shows the values that normalized in each read length individually.
+
+### Total-Heatmap
+
+![total_heatmap](Visuals/totalHeatmap.svg)
+
+### Row-Heatmap
+
+![row_heatmap](Visuals/rowHeatmap.svg)
+
+### Covered Area Plot
+
+![coveredArea](Visuals/coveredArea.svg)
+
+This plot shows how much of the area is covered at least **one** RPF in the given transcripts. X-Axis contains individual transcripts while Y-Axis shows the percentage of their covered areas. To ease of read transcripts are colored with respect to their covered areas.
+
+### Codon Usage Plot
+
+![codonUsage](Visuals/codonUsage.svg)
+
+### Coverage of Transcripts
+
+![coveragePlot](Visuals/coveragePlot.svg)
+
+Martian reports coverage plots for the top 20 transcripts (by their RPKM values) in the reports. In these plots start and stop for CDS region are highlighted by vertical lines.
+
