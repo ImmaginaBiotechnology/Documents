@@ -49,4 +49,4 @@ log2FoldChannge RNASeq is between (-1,1) and log2 FoldChange RiboSeq is between 
 
 ## Directional Plot
 
-![directional](/Visuals/DirectionalPlot.pdf)
+![directional](/Visuals/DirectionalPlot.jpg)
