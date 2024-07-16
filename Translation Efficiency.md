@@ -1,14 +1,14 @@
 # Translation Efficiency Module
 
-**Translation Efficiency** is a methodology to see differentialy expressed genes on different conditions. The difference between **Differential Expression (DE)** and **Translation Efficiency (TE)** is the formulation of generalized linear model. While in DE analyses model is built up on the difference between two *conditions* (Control-Treatment) in specific *sequencing type* (RiboSeq or RNASeq), in the TE the model built up on the intersection terms of sequencing type and conditions. As further explanation since number of RPFs on a gene is highly influenced by the number of mRNA copies of that gene, doing only DE on RiboSeq may not reflect the real differential production of that specific gene's protein. These numbers must somehow "normalized" on RNASeq to get more accurate results and the "Translation Efficiency" is aiming this. You can find more information on the Chothani et.al, deltaTE: Detection of Translationally Regulated Genes by Integrative Analysis of Ribo-seq and RNA-seq Data, 2019 (https://doi.org/10.1002/cpmb.108). <br />
-You can see our workflow for the Translation Efficiency below: <br />
+**Translation Efficiency (TE)** is a method for identifying differentially expressed genes across conditions by accounting for both transcriptional and translational regulation. Unlike **Differential Expression (DE)**, which compares gene expression levels between conditions within a single sequencing type (Ribo-Seq or RNA-Seq), TE analyzes the interaction between sequencing type and condition. Since the number of Ribosome Protected Fragments (RPFs) on a gene is strongly influenced by mRNA abundance, a simple DE analysis on Ribo-Seq data may not accurately reflect changes in protein production. TE addresses this by normalizing RPF counts based on corresponding RNA-Seq data, providing a more precise measure of translational regulation. For a deeper understanding of TE, refer to Chothani et al., "deltaTE: Detection of Translationally Regulated Genes by Integrative Analysis of Ribo-seq and RNA-seq Data" (https://doi.org/10.1002/cpmb.108). <br />
+Our Translation Efficiency workflow is as follows: <br />
 <br />
 
 ![TE_Diagram](Visuals/TE_Diagram.jpg)
 
 ## Results
 
-Translation Efficiency analysis results are contains total 5 graphs and 2 data table along with count tables of each sample.
+The Translation Efficiency analysis results include five graphs, two data tables, and count tables for each sample.
 
 ## Tables
 
@@ -21,7 +21,7 @@ ENSG000000067890 | 1500 | -1.2 | 0.11 | -9.4 | 1.8e-20 | 3.01e-19
 ENSG000000001234 | 70 | 0.53 | 0.7 | 0.8 | 0.401 | 1
 ... | ... | ... | ... | ... | ... | ... 
 
-This table contains results of Translation Efficiency analysis. P-adjusted values are calculated by using 'Benjamini-Hochberg' method. The details about the values in the table can be found in DESeq2 vignette (https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
+This table summarizes the Translation Efficiency analysis results. P-adjusted values were calculated using the Benjamini-Hochberg method. For detailed information about the values in the table, refer to the DESeq2 vignette (https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
 
 ### Differential Expression.tsv
 
@@ -32,7 +32,7 @@ ENSG000000067890 | 1500 | -1.2 | 0.11 | -9.4 | 1.8e-20 | 3.01e-19 | 8123 | 0.000
 ENSG000000001234 | 70 | 0.53 | 0.7 | 0.8 | 0.401 | 1 | 77 | -1.2 | 0.8 | -1.5 | 0.16 | 1 | Transcription
 ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... 
 
-The table contains Differential Expression results for both RiboSeq and RNASeq. The results related to RiboSeq can be found in the columns identified with ".RiboSeq" and the results related with RNASeq can be found in the columns identified with ".RNASeq". This table is merge of two different DE analysis and **IT IS NOT RELATED WITH TRANSLATION EFFICIENCY ANALYSIS**. These DE analyses shows regulation of the genes between Treatment vs. Control in each individual sequencing type. Since the values are not 'normalized' on sequencing type the log2 FoldChanges and p-values may or may not be different from TE. The logic of this analysis to see if the read counts in each gene are up-regulated or down-regulation in translation and transcription individually. By looking log2 FoldChanges in RNASeq and RiboSeq we are identifying genes with respect to table below;<br />
+This table presents **Differential Expression (DE)** results for both **Ribo-Seq** and **RNA-Seq** data. Columns ending in ".RiboSeq" correspond to Ribo-Seq results, while those ending in ".RNASeq" pertain to RNA-Seq results. **Importantly, these DE analyses are independent of the Translation Efficiency analysis** and do not involve normalization across sequencing types. They assess gene level up- or down-regulation within each sequencing type (Treatment vs. Control). Consequently, log2 Fold Changes and p-values may differ from the TE analysis. The logic of this analysis to identify genes with increased or decreased read counts in either translation or transcription, compare the log2 Fold Changes in the RNA-Seq and Ribo-Seq columns. The genes identified with respect to table below;<br />
 Description | Movement
 --- | ---
 log2FoldChannge RNASeq >= 1 and log2 FoldChange RiboSeq >= 1 | **"Homo-Direction"**
@@ -49,7 +49,7 @@ log2FoldChannge RNASeq is between (-1,1) and log2 FoldChange RiboSeq is between 
 
 ## Prencipal Component Analysis (PCA) Plots
 
-The results are contains 3 PCA plots "Sample", "RNASeq" and "RiboSeq". Sample is the results of PCA analysis of all given samples (RiboSeq + RNASeq for each Control and Treated) while RNASeq and RiboSeq contains results of RiboSeq and RNASeq samples respectively.
+The results include three PCA plots: "Sample", "RNASeq", and "RiboSeq". The "Sample" plot visualizes the PCA analysis of all samples (Ribo-Seq and RNA-Seq for both Control and Treated groups). The "RNASeq" and "RiboSeq" plots show PCA results for the respective data types alone.
 
 ![pca_sample](/Visuals/PCA_Sample.jpg)
 ![pca_ribo](/Visuals/PCA_RiboSeq.jpg)
@@ -58,12 +58,12 @@ The results are contains 3 PCA plots "Sample", "RNASeq" and "RiboSeq". Sample is
 
 ## Directional Plot
 
-![directional](/Visuals/DirectionalPlot.jpg)
+This scatter plot visualizes differential gene expression between Ribo-Seq and RNA-Seq data. Each dot represents a gene, positioned based on its log2FoldChange in Ribo-Seq (x-axis) and RNA-Seq (y-axis). Genes are labeled according to their differential expression patterns.
 
-This is the visualized version of the differential expression data. Each dot represents a gene, X-Axis shows the log2FoldChanges in RiboSeq and Y-Axis shows log2FoldChanges in RNASeq and genes are labeled with respect to their movement.
+![directional](/Visuals/DirectionalPlot.jpg)
 
 ## Volcano Plot
 
-![volcano](/Visuals/VolcanoPlot.jpg)
+This volcano plot visually represents translation efficiency data. Each point corresponds to a gene, plotted based on its log2 Fold Change (x-axis) and adjusted p-value (y-axis, -log10 scale, Benjamini-Hochberg method).
 
-This Volcano Plot is visualized version of the translation efficiency data. Each dot represents a gene, X-Axis show log2 FoldChanges and Y-Axis shows Adjusted P-Values('Benjamini-Hochberg') in -log10 scale.
+![volcano](/Visuals/VolcanoPlot.jpg)
