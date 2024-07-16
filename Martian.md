@@ -13,7 +13,7 @@ For each analysis Martian reporting multiple tables that can be used for further
 
 ## Tables
 
-!! ALL THE NUMBERS REPORTED BELOW ARE FOR PRESENTATION AND THEY DO NOT REFLECTS THE REAL EXPERIMENTAL RESULTS !!
+!! ALL THE NUMBERS REPORTED BELOW ARE FOR PRESENTATION AND THEY DO NOT REFLECT THE REAL EXPERIMENTAL RESULTS !!
 
 ### *"Sample"*_psiteData
 
@@ -26,10 +26,10 @@ ENST00000067890 | 256 | 291 | 36 | READ3 | 205 | 1569 | 20 | 13 | 22 | 13 | 269 
 ENST00000045678 | 128 | 155 | 28 | READ1234 | 237 | 618 | 20 | 13 | 14 | 13 | 141 | 0 | UTR5 | AGA
 ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ...
 
-This is the **MASTER FILE** for ribosome profiling results. All other results are calculated by using information in this file. The columns are in order;
-- **transcript:** Transcript ID of the RPF that aligned to
-- **read_start:** The position where the RPF starting on the transcript that aligned. Since python indexes are starting from "0" minimum nucleotide position in each transcript is **"0"**
-- **read_end:** The position of the last nucleotide of the RPF on the transcript that aligned. Since python indexes are starting from "0" minimum nucleotide position in each transcript is **"0"** hence CDS end in the gene browsers can be **"read_end + 1"**
+This is the **MASTER FILE** of the analysis. All the results are calculated by using information in this file. The columns are in order;
+- **transcript:** Transcript ID on which the RPF maps
+- **read_start:** The position where the RPF first nucleotide maps relative to the reference transcript. Since python indexes are starting from "0" minimum nucleotide position in each transcript is **"0"**
+- **read_end:** The position of the last nucleotide of the RPF maps on the reference. Since python indexes are starting from "0" minimum nucleotide position in each transcript is **"0"** hence CDS end in the gene browsers can be **"read_end + 1"**
 - **read_len:** Length of the RPF
 - **read_id:** ID of the RPF in the alignment (.bam) file
 - **cds_start:** Start position of the Coding Region (CDS) of the relative transcript. Since python indexes are starting from "0" minimum nucleotide position in each transcript is **"0"** hence CDS start in the gene browsers can be **"cds_start + 1"**
@@ -37,11 +37,11 @@ This is the **MASTER FILE** for ribosome profiling results. All other results ar
 - **min_len:** Minimum RPF length in that relative transcript
 - **psite5:** Calculated p-site offset from 5' for relative **'read length'**
 - **psite3:** Calculated p-site offset from 3' for relative **'read length'**
-- **offset:** Selected offset (between psite5 and psite3) with respect to one that most representative for relative **'read length'**
+- **offset:** Selected offset (the highest frequency between psite5 and psite3) for relative **'read length'**
 - **psiteFromStart:** Position of the p-site for given RPF. This can be calculated by **"read start + offset"**
-- **frame:** Frame information (0, 1, 2) that calculated from the 3nt distance from cds start of the given p-site for the RPF. "0" means RPF is in correct frame while "1" and "2" means shifted by 1 and 2 nucleotide.
-- **read_region:** Information about in which region for that given RPF.
-- **codon:** Codon information of given RPF with respect to position of its p-site
+- **frame:** Information of positioning of the p-site. "0" means RPF is in correct frame while "1" and "2" means shifted by 1 and 2 nucleotide.
+- **read_region:** Region (CDS, 5'UTR or 3'UTR) to which the RPF belongs.
+- **codon:** Codon corresponding to the calculated p-site(PsiteFromStart)
 
 ### *"Sample"*_AminoList_CDS
 
@@ -53,7 +53,7 @@ ENST00000067890 | ATG | Methionine
 ENST00000067890 | AAG | Lysine
 ... | ... | ...
 
-Amino acid list table contains **transcriptID**, **codon** and **amino acid** information for each read (Each row in the table represents one read) that is in "Coding Region (CDS)" of transcripts.
+Codon table contains **transcriptID**, **codon** and **amino acid** information for each read (Each row in the table represents one read) that is in "Coding Region (CDS)" of transcripts.
 
 ### *"Sample"*_counts
 
@@ -85,7 +85,7 @@ ENST00000012345 | 0.678
 ENST00000067890 | 0.123
 ... | ... 
 
-This table contains information about how much of the area covered at least 1 read for each transcript.
+This table contains information about how much of the area covered at least 1 read for each transcript. (Minimum = 0, Maximum = 1)
 
 ### *"Sample"*_psitesByLength
 
