@@ -109,7 +109,7 @@ Lengths | Frames | rate
 34 | 0 | 0.03
 ... | ... | ...
 
-Frame CDS table is contains percentage of reads for each length and each frame. This table is later used for the preparation of heatmaps and for the detection of the monosome length by their "rate" value.
+Frame CDS table is contains percentage of reads for each length and each frame. This table is later used for the preparation of heatmaps and for the detection of the monosome length by identified the **Length** has highest **rate** in **Frame 0**.
 
 ### *"Sample"*_metaprofileStart and *"Sample"*_metaprofileEnd
 
