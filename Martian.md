@@ -7,7 +7,7 @@ In Martian p-sites are identified using a p-site offset computed for each differ
 
 ## Results
 
-Martian performs two analyses for each sample. First, it is analysing all reads without any length filtering to get ribosome profiling results (folder named **"All"**). After this it is finding the 'Monosome Length' of the Ribosome Protected Fragments (RPFs) for the given samples from the information [Frame CDS table](#"Sample"-FrameCDS) and filtering RPFs in monosome lengths and repeating the analsyis for those reads and exporting these results on another folder named **"Filtered"**.
+Martian performs two analyses for each sample. First, it is analysing all reads without any length filtering to get ribosome profiling results (folder named **"All"**). After this it is finding the 'Monosome Length' of the Ribosome Protected Fragments (RPFs) for the given samples from the information [Frame CDS table](#"sample"-framecds) and filtering RPFs in monosome lengths and repeating the analsyis for those reads and exporting these results on another folder named **"Filtered"**.
 
 For each analysis Martian reporting multiple tables that can be used for further analyses.
 
