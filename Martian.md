@@ -7,7 +7,7 @@ In Martian p-sites are identified using a p-site offset computed for each differ
 
 ## Results
 
-Martian performs two analyses for each sample. First, it is analysing all reads without any length filtering to get ribosome profiling results (folder named **"All"**). After this it is finding the 'Monosome Length' of the Ribosome Protected Fragments (RPFs) for the given samples from the information [Frame CDS table](#Sample-FrameCDS.csv) and filtering RPFs in monosome lengths and repeating the analsyis for those reads and exporting these results on another folder named **"Filtered"**.
+Martian performs two analyses for each sample. First, it is analysing all reads without any length filtering to get ribosome profiling results (folder named **"All"**). After this it is finding the 'Monosome Length' of the Ribosome Protected Fragments (RPFs) for the given samples from the information [Frame CDS table](#"Sample"-FrameCDS) and filtering RPFs in monosome lengths and repeating the analsyis for those reads and exporting these results on another folder named **"Filtered"**.
 
 For each analysis Martian reporting multiple tables that can be used for further analyses.
 
@@ -15,7 +15,7 @@ For each analysis Martian reporting multiple tables that can be used for further
 
 !! ALL THE NUMBERS REPORTED BELOW ARE FOR PRESENTATION AND THEY DO NOT REFLECTS THE REAL EXPERIMENTAL RESULTS !!
 
-### *"Sample"*_psiteData.csv
+### *"Sample"*_psiteData
 
 transcript | read_start | read_end | read_len | read_id | cds_start | cds_end | min_len | psite5 | psite3 | offset | psiteFromStart | frame | read_region | codon
 --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- 
@@ -43,7 +43,7 @@ This is the **MASTER FILE** for ribosome profiling results. All other results ar
 - **read_region:** Information about in which region for that given RPF.
 - **codon:** Codon information of given RPF with respect to position of its p-site
 
-### *"Sample"*_AminoList_CDS.csv
+### *"Sample"*_AminoList_CDS
 
 transcript | codon | aminoAcid
 --- | --- | ---
@@ -55,7 +55,7 @@ ENST00000067890 | AAG | Lysine
 
 Amino acid list table contains **transcriptID**, **codon** and **amino acid** information for each read (Each row in the table represents one read) that is in "Coding Region (CDS)" of transcripts.
 
-### *"Sample"*_counts.csv
+### *"Sample"*_counts
 
 transcript | count | cdsLength | RPKM
 --- | --- | --- | ---
@@ -66,7 +66,7 @@ ENST00000067890 | 123456 | 7890 | 123
 Counts table contains **transcriptID**, **RPFs counts**, **CDS length of the transcript** and **Normalized RPFs count by RPKM method**.<br />
 ***The counts are coming from "both" in-frame and not inframe RPFs***.
 
-### *"Sample"*_inFrameCounts.csv
+### *"Sample"*_inFrameCounts
 
 transcript | count | cdsLength | RPKM
 --- | --- | --- | ---
@@ -77,7 +77,7 @@ ENST00000067890 | 123456 | 7890 | 123
 Counts table contains **transcriptID**, **RPFs counts**, **CDS length of the transcript** and **Normalized RPFs count by RPKM method**.<br />
 ***The counts are coming from "just" in-frame RPFs***.
 
-### *"Sample"*_coveredArea.csv
+### *"Sample"*_coveredArea
 
 transcript | coveredArea
 --- | --- 
@@ -87,7 +87,7 @@ ENST00000067890 | 0.123
 
 This table contains information about how much of the area covered at least 1 read for each transcript.
 
-### *"Sample"*_psitesByLength.csv
+### *"Sample"*_psitesByLength
 
 read_len | psite5 | psite3
 --- | --- | ---
@@ -99,7 +99,7 @@ read_len | psite5 | psite3
 
 This table contains the information about calculated p-site offsets for each length.
 
-### *"Sample"* FrameCDS.csv
+### *"Sample"* FrameCDS
 
 Lengths | Frames | rate
 --- | --- | ---
@@ -111,7 +111,7 @@ Lengths | Frames | rate
 
 Frame CDS table is contains percentage of reads for each length and each frame. This table is later used for the preparation of heatmaps and for the detection of the monosome length by their "rate" value.
 
-### *"Sample"*_metaprofileStart.csv and *"Sample"*_metaprofileEnd.csv
+### *"Sample"*_metaprofileStart and *"Sample"*_metaprofileEnd
 
 psite_from_cds_start | rate
 --- | --- 
