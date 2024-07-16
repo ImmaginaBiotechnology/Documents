@@ -1,13 +1,13 @@
 # Martian Ribosome Profiling Module
 
 ## Calculation of the P-sites
-In Martian p-sites are identified by the calculated p-site offsets in each different length of reads. These p-site offsets are calculated by the distance of start codons (Translation Initiation Sites) from the relative start positions of RPFs in each read length as described in https://doi.org/10.1371/journal.pcbi.1006169. You can see the explanatory diagram below;
+In Martian p-sites are identified using a p-site offset computed for each different length of reads. These p-site offsets are calculated by the distance of start codon (Translation Initiation Sites) from the relative start positions of RPFs in each read length as described in https://doi.org/10.1371/journal.pcbi.1006169. You can see the explanatory diagram below;
 
 ![Martian_psite_offset_calc](Visuals/Martian_psite_offset_calc.jpg)
 
 ## Results
 
-Martian performs two analyses for each sample. First, it is analysing all reads without any length filtering in the alignment files to get ribosome profiling results and reporting these results to the folder named **"All"**. After this it is finding the 'Monosome Length' of the Ribosome Protected Fragments (RPFs) for the given samples and filtering RPFs that belongs to monosomes and repeating the analsyis for those reads and exporting these results on another folder named **"Filtered"**.
+Martian performs two analyses for each sample. First, it is analysing all reads without any length filtering to get ribosome profiling results (folder named **"All"**). After this it is finding the 'Monosome Length' of the Ribosome Protected Fragments (RPFs) for the given samples from the information [Frame CDS table](#*"Sample"*-FrameCDS.csv) and filtering RPFs in monosome lengths and repeating the analsyis for those reads and exporting these results on another folder named **"Filtered"**.
 
 For each analysis Martian reporting multiple tables that can be used for further analyses.
 
