@@ -1,13 +1,13 @@
 # Martian Ribosome Profiling Module
 
 ## Calculation of the P-sites
-In Martian p-sites are identifying by the calculated p-site offsets in each different length of reads. These p-site offsets are calculating by the distance of 'ATG' codons from the relative start positions of transcripts in each read length. You can see the explanatory diagram below;
+In Martian p-sites are identified by the calculated p-site offsets in each different length of reads. These p-site offsets are calculated by the distance of start codons (Translation Initiation Sites) from the relative start positions of RPFs in each read length as described in https://doi.org/10.1371/journal.pcbi.1006169. You can see the explanatory diagram below;
 
 ![Martian_psite_offset_calc](Visuals/Martian_psite_offset_calc.jpg)
 
 ## Results
 
-Martian is doing 2 analyses for each sample. First, it is analysing all reads without any length filtering in the alignment files to get ribosome profiling results and reporting these results to the folder named **"All"**. After this it is finding the 'Monosome Length' of the Ribosome Protected Fragments (RPFs) for the given samples and filtering RPFs that belongs to monosomes and repeating the analsyis for those reads and exporting these results on another folder named **"Filtered"**.
+Martian performs two analyses for each sample. First, it is analysing all reads without any length filtering in the alignment files to get ribosome profiling results and reporting these results to the folder named **"All"**. After this it is finding the 'Monosome Length' of the Ribosome Protected Fragments (RPFs) for the given samples and filtering RPFs that belongs to monosomes and repeating the analsyis for those reads and exporting these results on another folder named **"Filtered"**.
 
 For each analysis Martian reporting multiple tables that can be used for further analyses.
 
@@ -29,7 +29,7 @@ ENST00000045678 | 128 | 155 | 28 | READ1234 | 237 | 618 | 20 | 13 | 14 | 13 | 14
 This is the **MASTER FILE** for ribosome profiling results. All other results are calculated by using information in this file. The columns are in order;
 - **transcript:** Transcript ID of the RPF that aligned to
 - **read_start:** The position where the RPF starting on the transcript that aligned. Since python indexes are starting from "0" minimum nucleotide position in each transcript is **"0"**
-- **read_end:** The position of the last nucleotide of the RPF on the transcript that aligned.
+- **read_end:** The position of the last nucleotide of the RPF on the transcript that aligned. Since python indexes are starting from "0" minimum nucleotide position in each transcript is **"0"** hence CDS end in the gene browsers can be **"read_end + 1"**
 - **read_len:** Length of the RPF
 - **read_id:** ID of the RPF in the alignment (.bam) file
 - **cds_start:** Start position of the Coding Region (CDS) of the relative transcript. Since python indexes are starting from "0" minimum nucleotide position in each transcript is **"0"** hence CDS start in the gene browsers can be **"cds_start + 1"**
@@ -109,7 +109,7 @@ Lengths | Frames | rate
 34 | 0 | 0.03
 ... | ... | ...
 
-Frame CDS table is contains percentage of reads for each length and each frame. This table is later using for the prepare heatmaps and for for the detecting of the monosome length.
+Frame CDS table is contains percentage of reads for each length and each frame. This table is later using for the prepare heatmaps and for the detecting of the monosome length.
 
 ### *"Sample"*_metaprofileStart.csv and *"Sample"*_metaprofileEnd.csv
 
@@ -210,5 +210,5 @@ This plot shows how much of the area is covered at least **one** RPF in the give
 
 ![coveragePlot](Visuals/coveragePlot.svg)
 
-Martian reports coverage plots for the top 20 transcripts (by their RPKM values) in the reports. In these plots start and stop for CDS region are highlighted by vertical lines.
+Martian reports coverage plots for the top 20 transcripts (by their RPKM values) in the reports. In these plots start and stop for CDS region are highlighted by vertical dashed red lines.
 
