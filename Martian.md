@@ -64,7 +64,7 @@ ENST00000067890 | 123456 | 7890 | 123
 ... | ... | ... | ...
 
 Counts table contains **transcriptID**, **RPFs counts**, **CDS length of the transcript** and **Normalized RPFs count by RPKM method**.<br />
-***The counts are coming from "both" in-frame and not inframe RPFs***.
+***The counts are coming from "both" in-frame and not in-frame RPFs***.
 
 ### *"Sample"*_inFrameCounts
 
