@@ -47,7 +47,7 @@ log2FoldChannge RNASeq is between (-1,1) and log2 FoldChange RiboSeq is between 
 
 ## Plots
 
-## Prencipal Component Analysis (PCA) Plots
+## Principal Component Analysis (PCA) Plots
 
 The results include three PCA plots: "Sample", "RNASeq", and "RiboSeq". The "Sample" plot visualizes the PCA analysis of all samples (Ribo-Seq and RNA-Seq for both Control and Treated groups). The "RNASeq" and "RiboSeq" plots show PCA results for the respective data types alone.
 
