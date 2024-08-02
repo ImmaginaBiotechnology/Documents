@@ -1,15 +1,15 @@
 # Martian Ribosome Profiling Module
 
 ## Calculation of the P-sites
-In Martian p-sites are identified using a p-site offset computed for each different length of reads. These p-site offsets are calculated by the distance of start codon (Translation Initiation Sites) from the relative start positions of RPFs in each read length as described in https://doi.org/10.1371/journal.pcbi.1006169. You can see the explanatory diagram below;
+In Martian, p-sites are identified using a p-site offset computed for each different length of reads. These p-site offsets are calculated by the distance of the start codon (Translation Initiation Sites) from the relative start positions of RPFs in each read length, as described in https://doi.org/10.1371/journal.pcbi.1006169. You can see the explanatory diagram below:
 
 ![Martian_psite_offset_calc](Visuals/Martian_psite_offset_calc.jpg)
 
 ## Results
 
-Martian performs two analyses for each sample. First, it is analysing all reads without any length filtering to get ribosome profiling results (folder named **"All"**). After this it is finding the 'Monosome Length' of the Ribosome Protected Fragments (RPFs) for the given samples from the information [Frame CDS table](#sample-framecds) and filtering RPFs in monosome lengths and repeating the analsyis for those reads and exporting these results on another folder named **"Filtered"**.
+Martian performs two analyses for each sample. First, it analyzes all reads without any length filtering to get ribosome profiling results (folder named “All”). After this, it finds the ‘Monosome Length’ of the Ribosome Protected Fragments (RPFs) for the given samples from the information [Frame CDS table](#sample-framecds), filters RPFs in monosome lengths, repeats the analysis for those reads, and exports these results in another folder named “Filtered”.
 
-For each analysis Martian reporting multiple tables that can be used for further analyses.
+For each analysis, Martian reports multiple tables that can be used for further analyses.
 
 ## Tables
 
@@ -26,7 +26,7 @@ ENST00000067890 | 256 | 291 | 36 | READ3 | 205 | 1569 | 20 | 13 | 22 | 13 | 269 
 ENST00000045678 | 128 | 155 | 28 | READ1234 | 237 | 618 | 20 | 13 | 14 | 13 | 141 | 0 | UTR5 | AGA
 ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... | ...
 
-This is the **MASTER FILE** of the analysis. All the results are calculated by using information in this file. The columns are in order;
+This is the **MASTER FILE** of the analysis. All the results are calculated using information from this file. The columns are in order;
 - **transcript:** Transcript ID on which the RPF maps
 - **read_start:** The position where the RPF first nucleotide maps relative to the reference transcript. Since python indexes are starting from "0" minimum nucleotide position in each transcript is **"0"**
 - **read_end:** The position of the last nucleotide of the RPF maps on the reference. Since python indexes are starting from "0" minimum nucleotide position in each transcript is **"0"** hence CDS end in the gene browsers can be **"read_end + 1"**
@@ -53,7 +53,7 @@ ENST00000067890 | ATG | Methionine
 ENST00000067890 | AAG | Lysine
 ... | ... | ...
 
-Codon table contains **transcriptID**, **codon** and **amino acid** information for each read (Each row in the table represents one read) that is in "Coding Region (CDS)" of transcripts.
+The codon table contains **transcriptID**, **codon** and **amino acid** information for each read (Each row in the table represents one read) that is in "Coding Region (CDS)" of transcripts.
 
 ### *"Sample"*_counts
 
@@ -129,7 +129,7 @@ psite_from_cds_stop | rate
 2 | 0.0008
 ... | ... 
 
-These two files contains the rate of the reads' p-site with respect to start and stop positions of transcripts' cds. To get this result all the reads are grouping with respect to their relative distance from start and stop positions in every transcript. Then for every distance value the ratio of total reads in that specific distance divided by total number of the reads. If we have to formulate this;
+These two files contains the rate of the reads' p-site with respect to start and stop positions of transcripts' cds. To get this result all the reads are grouping with respect to their relative distance from start and stop positions in every transcript. Then, for every distance value, the ratio of total reads in that specific distance divided by total number of the reads. If we have to formulate this;
 
 $$\textrm{Distance Ratio From CDS Start}  = \left(\textrm{For Each Nucleotide l} \sum_{k=1}^n \textrm{p-sites in }transcript_k(nucleotide_l) \right) / \left( \sum \textrm{p-site} \right)$$ <br />
 where k = transcript, l = nucleotide position with respect to relative CDS starts
