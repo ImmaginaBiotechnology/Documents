@@ -208,7 +208,6 @@ Information that can be extracted from a metaprofile plot:<br />
 
 ### Heatmaps
 <br />
-
 The heatmap provides a visual representation of ribosome occupancy across different regions along the mRNA. Martian results display two different heatmaps.<br />
 Both heatmaps show the frame information of the RPFs p-sites along the 5’UTR, CDS and 3’UTR on the x-axis, stratified for read length (nucleotides, on y-axis). The density of p-sites at each position is shown by increased intensity in the colour gradient. Intense colours in specific regions indicate high ribosome occupancy, suggesting active translation.<br />
 For the “Total-Heatmap”, signal is normalized on the total number of RPFs, while for “Row-Heatmap” the sum of the signal is normalized for each read length individually. <br />
