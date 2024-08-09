@@ -1,7 +1,13 @@
 # Martian Ribosome Profiling Module
 
 ## Calculation of the P-sites
-In Martian, p-sites are identified using a p-site offset computed for each different length of reads. These p-site offsets are calculated by the distance of the start codon (Translation Initiation Sites) from the relative start positions of RPFs in each read length, as described in https://doi.org/10.1371/journal.pcbi.1006169. You can see the explanatory diagram below:
+
+Martian<sup>TM</sup> is the cutting-edge python-based RIBO-suite. This tool is revolutionizing gene expression analysis, data mining, and data visualization offering a gateway to a vast sea of invaluable big data collected through Immagina's pioneering technologies.
+The most distinct feature of tools for RiboSeq analysis is the calculation of P-sites.<br />
+The P-site (peptidyl) is the second binding site for tRNA within the ribosome. The other two sites are called A-site (aminoacyl) and the E-site (exit). During translation, the P-site contains the tRNA attached to the elongating polypeptide chain.<br />
+<br />
+In Martian, P-sites are identified using a P-site offset computed for each different length of reads. These P-site offsets are calculated by the distance of the start codon (Translation Initiation Sites) from the relative start positions of RPFs in each read length, as described in https://doi.org/10.1371/journal.pcbi.1006169. You can see the explanatory diagram below:<br />
+<br />
 
 ![Martian_psite_offset_calc](Visuals/Martian_psite_offset_calc.jpg)
 
@@ -164,51 +170,76 @@ result = coverageData.filter(polars.col("transcriptID") == "ENST00000420542").se
 
 ## Plots
 
-Each plot in this section is reporting in HTML format and each of them has interactive properties and downloadable as **Scalable Vector Graphics (.svg)** from the html report itself. In here static plots are used to explain meanings of each plot.
+Each plot in this section is reported in HTML format and each of them has interactive properties. Plots are downloadable as **Scalable Vector Graphics (.svg)** from the html report itself. For this document, static plots are used for explanatory aims.
 
-### Length Distribution Plot
+### Length Distribution Plot<br/>
 
 ![lenDist](Visuals/lengthDistribution.svg)
-
-Length Distribution plot shows how frequency of read lengths of RPFs in the given sample. Since RiboLace GelFree kit (https://www.immaginabiotech.com/our-technologies/ribolace) allows longer reads detection disome lengths can be seen in this plot. Martian is designed to be able to do analysis for also disome length RPFs.
+<br />
+The length distribution plot shows the frequency of RPFs lengths in nucleotides on the x-axis and their abundance on the y-axis. A length distribution plot provides insights into:<br />
+&nbsp;•	The most common ribosome-protected fragment lengths, reflecting the typical footprint size (around 28-35 nucleotides for eukaryotic ribosomes actively engaged in translation). Since RiboLace GelFree kit (https://www.immaginabiotech.com/our-technologies/ribolace) allows longer reads detection, putative disome lengths can be also seen in this plot at around 60 nucleotides. Martian is also able to do analysis for disome-length RPFs.<br />
+&nbsp;•	The quality and precision of the ribosome profiling experiment: a clear, sharp peak at a specific length suggests high-quality ribosome profiling data, indicating that the fragments are predominantly of the expected size. If broad or multiple peaks are present, this can indicate technical issues, such as non-optimal digestion or bad quality of starting material with presence of contaminating fragments due to RNA degradation.<br />
+&nbsp;•	Differences in ribosome behaviour under various experimental conditions. For example, stress conditions might cause ribosomes to pause more frequently, altering the fragment length distribution.<br />
+By carefully analysing the length distribution plot, researchers can infer the efficiency and accuracy of ribosome profiling, identify translational regulatory events, and compare ribosome dynamics across different conditions.<br />
 
 ### Read Region & Frame Plot
 
 ![readRegion](Visuals/readSiteFrame.svg)
+<br />
+Read Region & Frame plot provides crucial insights into the ribosome occupancy and reading frame preferences along the mRNA.<br />
 
-Read Region & Frame plot gives information about the region (5'UTRs,CDS or 3'UTRs) of the RPFs in their respective transcripts in the samples. The percentages with respect to total number of reads can be seen in the bottom right part of each panel.
+&nbsp;•	The differentially coloured boxes indicate the percentages of reads over total of RPFs mapping on the coding sequence (CDS, in green), 5’ untranslated region (5’UTRs, yellow) or 3’ untranslated region (3’UTR, red). Higher ribosome density within the CDS suggests active translation and high translational efficiency, whereas low density might indicate less active translation.<br />
+&nbsp;•	Inside the CDS and the UTRs, RPFs are subdivided according to three possible reading frames. A reading frame is a way of dividing the sequence of nucleotides into a set of consecutive, non-overlapping codons. Since there are three nucleotides in each codon, there are three possible reading frames. Frame 0: The reading frame where translation starts at the first nucleotide. Frame 1: The reading frame where translation starts at the second nucleotide. Frame 2: The reading frame where translation starts at the third nucleotide. In a properly translating mRNA, the majority of RPFs should align with frame 0 (the correct reading frame). 
+High fidelity translation is indicated by a strong preference for frame 0. Significant ribosome occupancy in frame 1 or frame 2 can indicate frame-shifting events, where the ribosome shifts to an alternative reading frame. This can occur naturally in some genes or as a result of errors in translation.<br />
+By analyzing this plot, researchers can understand the dynamics of translation, identify potential regulatory mechanisms, and assess the fidelity of ribosome activity on the mRNA.<br />
 
 ### Metaprofile Plot
 
 ![metaprofile](Visuals/metaprofilePlot.svg)
+<br />
+The metaprofile plot shows average ribosome occupancy data (p-site frequency) from all transcripts to provide a general view of ribosome behaviour at specific regions relative to key genomic landmarks (i.e., start and stop). This plot helps identify patterns of translation initiation, elongation, and termination.<br />
+The x-axis represents nucleotide positions relative to the start codon (left) or stop codon (right). Positions upstream (negative values) and downstream (positive values) of the landmark are shown. The start and stop for CDS region are highlighted by vertical dashed red lines.<br />
+The y-axis shows the p-site density at each nucleotide position.<br />
+Information that can be extracted from a metaprofile plot:<br />
+&nbsp;•	Quality of the riboseq: clean distribution of peaks every 3 nucleotide is expected, with low signal-to-noise ratio (represented by the distance between the base of each peak and the x-axis). If digestion step was not performed properly or the quality of the starting material is not optimal, noise in this graph increases.<br />
+&nbsp;•	A pronounced peak at the start codon indicates strong and consistent translation initiation. A gradual decrease in ribosome density moving downstream from the start codon into the coding sequence (CDS) suggests a steady elongation process. Local peaks within the CDS can indicate ribosome pausing or stalling at specific codons, which might correspond to regulatory sequences or difficult-to-translate regions.<br />
+&nbsp;•	A peak at the stop codon indicates ribosome accumulation as they complete translation and dissociate from the mRNA. Ribosome density immediately downstream of the stop codon can suggest delayed termination or ribosome recycling processes.<br />
+&nbsp;•	By comparing metaprofiles, researchers can identify general patterns of ribosome behaviour that can indicate regulatory mechanisms affecting translation under different conditions (e.g., stress vs. normal conditions).<br />
 
-Metaprofile plot contains two sub-plot. Left side of metaprofile plot shows the distance from relative start for each transcript, and for each nucleotide position the frequency shows the ratio of how many p-site (each p-site from an individual RPF) found in that specific location between total number of RPFs. Right side of metaprofile shows the distance from the relative stop position for each transcripts and the ratio of p-site in each nucleotide position between totoal number of RPFs.
+### Heatmaps
+<br />
 
-### Heatmap"s"
-
-Martian results contains two different heatmaps. Both heapmaps contains read lengths of RPFs that can found in the sample in the Y-Axis and frame information of those reads in the X-Axis. The difference between them while total-Heatmap shows the values that normalized in total number of RPFs, row-Heatmap shows the values that normalized in each read length individually.
+The heatmap provides a visual representation of ribosome occupancy across different regions along the mRNA. Martian results display two different heatmaps.<br />
+Both heatmaps show the frame information of the RPFs p-sites along the 5’UTR, CDS and 3’UTR on the x-axis, stratified for read length (nucleotides, on y-axis). The density of p-sites at each position is shown by increased intensity in the colour gradient. Intense colours in specific regions indicate high ribosome occupancy, suggesting active translation.<br />
+For the “Total-Heatmap”, signal is normalized on the total number of RPFs, while for “Row-Heatmap” the sum of the signal is normalized for each read length individually. <br />
+For both heatmaps, the most intense signal is expected in the frame 0 of CDS, for RPFs with monosome length and disome length. <br />
 
 ### Total-Heatmap
-
 ![total_heatmap](Visuals/totalHeatmap.svg)
+<br />
 
 ### Row-Heatmap
-
 ![row_heatmap](Visuals/rowHeatmap.svg)
-
+<br />
 ### Covered Area Plot
 
 ![coveredArea](Visuals/coveredArea.svg)
-
-This plot shows how much of the area is covered at least **one** RPF in the given transcripts. X-Axis contains individual transcripts while Y-Axis shows the percentage of their covered areas. To ease of read transcripts are colored with respect to their covered areas.
-
-### Codon Usage Plot
-
-![codonUsage](Visuals/codonUsage.svg)
+<br />
+The covered area plot shows how much of the area of each transcript is covered by at least **one** RPF. <br />
+On the x-axis there are 10 boxes representing 10%-100% of covered area. Percentages of transcripts corresponding to the covered area is shown on the y-axis. <br />
+The readout of the graph is how many transcripts over the total are covered to a certain percentage of RPFs. <br />
 
 ### Coverage of Transcripts
 
 ![coveragePlot](Visuals/coveragePlot.svg)
+<br />
+Martian reports coverage of transcript plots for the top 20 transcripts (by their RPKM values). In these plots the coverage (read count in every given position) is on the y-axis, while the position on the transcript is expressed in nucleotides. The start and stop for CDS region are highlighted by vertical dashed red lines.
 
-Martian reports coverage plots for the top 20 transcripts (by their RPKM values) in the reports. In these plots start and stop for CDS region are highlighted by vertical dashed red lines.
+### Codon Usage Plot
+
+![codonUsage](Visuals/codonUsage.svg)
+<br />
+The codon usage plot shows the codons divided by amino acids in alphabetical order as a function of their percentage for all the transcripts in each sample.
+<br />
+
 
