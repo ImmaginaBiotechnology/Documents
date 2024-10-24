@@ -1,5 +1,31 @@
 # Martian Ribosome Profiling Module
 
+# Index of Contents
+
+- [Martian Ribosome Profiling Module](#martian-ribosome-profiling-module)
+- [Calculation of the P-sites](#calculation-of-the-p-sites)
+- [Results](#results)
+- [Tables](#tables)
+  - [File: "Sample"_psiteData](#file-sample_psitedata)
+  - [File: "Sample"_AminoList_CDS](#file-sample_aminolist_cds)
+  - [File: "Sample"_counts](#file-sample_counts)
+  - [File: "Sample"_inFrameCounts](#file-sample_inframecounts)
+  - [File: "Sample"_coveredArea](#file-sample_coveredarea)
+  - [File: "Sample"_psitesByLength](#file-sample_psitesbylength)
+  - [File: "Sample" FrameCDS](#file-sample-framecds)
+  - [File: "Sample"_metaprofileStart and "Sample"_metaprofileEnd](#file-sample_metaprofilestart-and-sample_metaprofileend)
+  - [How to read Coverage "Sample"_coverages.lz4 file](#how-to-read-coverage-sample_coverageslz4-file)
+- [Plots](#plots)
+  - [Length Distribution Plot](#length-distribution-plot)
+  - [Read Region & Frame Plot](#read-region--frame-plot)
+  - [Metaprofile Plot](#metaprofile-plot)
+  - [Heatmaps](#heatmaps)
+    - [Total-Heatmap](#total-heatmap)
+    - [Row-Heatmap](#row-heatmap)
+  - [Covered Area Plot](#covered-area-plot)
+  - [Coverage of Transcripts](#coverage-of-transcripts)
+  - [Codon Usage Plot](#codon-usage-plot)
+  
 ## Calculation of the P-sites
 
 Martian<sup>TM</sup> is the cutting-edge python-based RIBO-suite. This tool is revolutionizing gene expression analysis, data mining, and data visualization offering a gateway to a vast sea of invaluable big data collected through Immagina's pioneering technologies.
@@ -21,7 +47,7 @@ For each analysis, Martian reports multiple tables that can be used for further 
 
 !! ALL THE NUMBERS REPORTED BELOW ARE FOR PRESENTATION AND THEY DO NOT REFLECT THE REAL EXPERIMENTAL RESULTS !!
 
-### *"Sample"*_psiteData
+### File: *"Sample"*_psiteData
 
 transcript | read_start | read_end | read_len | read_id | cds_start | cds_end | min_len | psite5 | psite3 | offset | psiteFromStart | frame | read_region | codon
 --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- 
@@ -49,7 +75,7 @@ This is the **MASTER FILE** of the analysis. All the results are calculated usin
 - **read_region:** Region (CDS, 5'UTR or 3'UTR) to which the RPF belongs.
 - **codon:** Codon corresponding to the calculated p-site(PsiteFromStart)
 
-### *"Sample"*_AminoList_CDS
+### File: *"Sample"*_AminoList_CDS
 
 transcript | codon | aminoAcid
 --- | --- | ---
@@ -61,7 +87,7 @@ ENST00000067890 | AAG | Lysine
 
 The codon table contains **transcriptID**, **codon** and **amino acid** information for each read (Each row in the table represents one read) that is in "Coding Region (CDS)" of transcripts.
 
-### *"Sample"*_counts
+### File: *"Sample"*_counts
 
 transcript | count | cdsLength | RPKM
 --- | --- | --- | ---
@@ -72,7 +98,7 @@ ENST00000067890 | 123456 | 7890 | 123
 Counts table contains **transcriptID**, **RPFs counts**, **CDS length of the transcript** and **Normalized RPFs count by RPKM method**.<br />
 ***The counts are coming from "both" in-frame and not in-frame RPFs***.
 
-### *"Sample"*_inFrameCounts
+### File: *"Sample"*_inFrameCounts
 
 transcript | count | cdsLength | RPKM
 --- | --- | --- | ---
@@ -83,7 +109,7 @@ ENST00000067890 | 123456 | 7890 | 123
 Counts table contains **transcriptID**, **RPFs counts**, **CDS length of the transcript** and **Normalized RPFs count by RPKM method**.<br />
 ***The counts are coming from "just" in-frame RPFs***.
 
-### *"Sample"*_coveredArea
+### File: *"Sample"*_coveredArea
 
 transcript | coveredArea
 --- | --- 
@@ -93,7 +119,7 @@ ENST00000067890 | 0.123
 
 This table contains information about how much of the area covered at least 1 read for each transcript. (Minimum = 0, Maximum = 1)
 
-### *"Sample"*_psitesByLength
+### File: *"Sample"*_psitesByLength
 
 read_len | psite5 | psite3
 --- | --- | ---
@@ -105,7 +131,7 @@ read_len | psite5 | psite3
 
 This table contains the information about calculated p-site offsets for each length.
 
-### *"Sample"* FrameCDS
+### File: *"Sample"* FrameCDS
 
 Lengths | Frames | rate
 --- | --- | ---
@@ -117,7 +143,7 @@ Lengths | Frames | rate
 
 Frame CDS table contains percentage of the reads for each length and each frame. This table is later used for the preparation of heatmaps and for the detection of the monosome length by identifiying the **Length** that has highest **rate** in **Frame 0**.
 
-### *"Sample"*_metaprofileStart and *"Sample"*_metaprofileEnd
+### File: *"Sample"*_metaprofileStart and *"Sample"*_metaprofileEnd
 
 psite_from_cds_start | rate
 --- | --- 
@@ -140,7 +166,7 @@ These two files contains the rate of the reads' p-site with respect to start and
 $$\textrm{Distance Ratio From CDS Start}  = \left(\textrm{For Each Nucleotide l} \sum_{k=1}^n \textrm{p-sites in }transcript_k(nucleotide_l) \right) / \left( \sum \textrm{p-site} \right)$$ <br />
 where k = transcript, l = nucleotide position with respect to relative CDS starts
 
-### *"Sample"*_coverages.lz4
+### How to read Coverage *"Sample"*_coverages.lz4 file
 
 transcriptID | coverage
 --- | --- 
@@ -240,5 +266,4 @@ Martian reports coverage of transcript plots for the top 20 transcripts (by thei
 <br />
 The codon usage plot shows the codons divided by amino acids in alphabetical order as a function of their percentage for all the transcripts in each sample.
 <br />
-
 
