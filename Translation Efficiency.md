@@ -1,5 +1,17 @@
 # Translation Efficiency Module
 
+# Index of Contents
+
+- [Translation Efficiency Module](#translation-efficiency-module)
+- [Results](#results)
+- [Tables](#tables)
+  - [Translation Efficiency.tsv](#translation-efficiencytsv)
+  - [Differential Expression.tsv](#differential-expressiontsv)
+- [Plots](#plots)
+  - [Principal Component Analysis (PCA) Plots](#principal-component-analysis-pca-plots)
+  - [Directional Plot](#directional-plot)
+  - [Volcano Plot](#volcano-plot)
+  
 **Translation Efficiency (TE)** is a method for identifying differentially expressed genes across conditions by accounting for both transcriptional and translational regulation. Unlike **Differential Expression (DE)**, which compares gene expression levels between conditions within a single sequencing type (Ribo-Seq or RNA-Seq), TE analyzes the interaction between sequencing type and condition. Since the number of Ribosome Protected Fragments (RPFs) on a gene is strongly influenced by mRNA abundance, a simple DE analysis on Ribo-Seq data may not accurately reflect changes in protein production. TE addresses this by normalizing RPF counts based on corresponding RNA-Seq data, providing a more precise measure of translational regulation. For a deeper understanding of TE, refer to Chothani et al., "deltaTE: Detection of Translationally Regulated Genes by Integrative Analysis of Ribo-seq and RNA-seq Data" (https://doi.org/10.1002/cpmb.108). <br />
 Our Translation Efficiency workflow is as follows: <br />
 <br />
