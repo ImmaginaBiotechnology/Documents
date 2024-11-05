@@ -47,7 +47,7 @@ For each analysis, Martian reports multiple tables that can be used for further 
 
 !! ALL THE NUMBERS REPORTED BELOW ARE FOR PRESENTATION AND THEY DO NOT REFLECT THE REAL EXPERIMENTAL RESULTS !!
 
-### File: *"Sample"*_psiteData [Download Example Table](https://github.com/ImmaginaBiotechnology/Documents/blob/main/Martian_example_Tables/Sample_psiteData.csv)
+### File: *"Sample"*_psiteData    [Download Example Table](https://github.com/ImmaginaBiotechnology/Documents/blob/main/Martian_example_Tables/Sample_psiteData.csv)
 
 transcript | read_start | read_end | read_len | read_id | cds_start | cds_end | min_len | psite5 | psite3 | offset | psiteFromStart | frame | read_region | codon
 --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- 
@@ -75,7 +75,7 @@ This is the **MASTER FILE** of the analysis. All the results are calculated usin
 - **read_region:** Region (CDS, 5'UTR or 3'UTR) to which the RPF belongs.
 - **codon:** Codon corresponding to the calculated p-site(PsiteFromStart)
 
-### File: *"Sample"*_AminoList_CDS
+### File: *"Sample"*_AminoList_CDS    [Download Example Table](https://github.com/ImmaginaBiotechnology/Documents/blob/main/Martian_example_Tables/Sample_AminoList_CDS.csv)
 
 transcript | codon | aminoAcid
 --- | --- | ---
@@ -87,7 +87,7 @@ ENST00000067890 | AAG | Lysine
 
 The codon table contains **transcriptID**, **codon** and **amino acid** information for each read (Each row in the table represents one read) that is in "Coding Region (CDS)" of transcripts.
 
-### File: *"Sample"*_counts
+### File: *"Sample"*_counts    [Download Example Table](https://github.com/ImmaginaBiotechnology/Documents/blob/main/Martian_example_Tables/Sample_counts.csv)
 
 transcript | count | cdsLength | RPKM
 --- | --- | --- | ---
@@ -98,7 +98,7 @@ ENST00000067890 | 123456 | 7890 | 123
 Counts table contains **transcriptID**, **RPFs counts**, **CDS length of the transcript** and **Normalized RPFs count by RPKM method**.<br />
 ***The counts are coming from "both" in-frame and not in-frame RPFs***.
 
-### File: *"Sample"*_inFrameCounts
+### File: *"Sample"*_inFrameCounts    [Download Example Table](https://github.com/ImmaginaBiotechnology/Documents/blob/main/Martian_example_Tables/Sample_inFrameCounts.csv)
 
 transcript | count | cdsLength | RPKM
 --- | --- | --- | ---
@@ -109,7 +109,7 @@ ENST00000067890 | 123456 | 7890 | 123
 Counts table contains **transcriptID**, **RPFs counts**, **CDS length of the transcript** and **Normalized RPFs count by RPKM method**.<br />
 ***The counts are coming from "just" in-frame RPFs***.
 
-### File: *"Sample"*_coveredArea
+### File: *"Sample"*_coveredArea    [Download Example Table](https://github.com/ImmaginaBiotechnology/Documents/blob/main/Martian_example_Tables/Sample_coveredArea.csv)
 
 transcript | coveredArea
 --- | --- 
@@ -119,7 +119,7 @@ ENST00000067890 | 0.123
 
 This table contains information about how much of the area covered at least 1 read for each transcript. (Minimum = 0, Maximum = 1)
 
-### File: *"Sample"*_psitesByLength
+### File: *"Sample"*_psitesByLength    [Download Example Table](https://github.com/ImmaginaBiotechnology/Documents/blob/main/Martian_example_Tables/Sample_psitesByLength.csv)
 
 read_len | psite5 | psite3
 --- | --- | ---
@@ -131,7 +131,7 @@ read_len | psite5 | psite3
 
 This table contains the information about calculated p-site offsets for each length.
 
-### File: *"Sample"* FrameCDS
+### File: *"Sample"* FrameCDS    [Download Example Table](https://github.com/ImmaginaBiotechnology/Documents/blob/main/Martian_example_Tables/Sample_FrameCDS.csv)
 
 Lengths | Frames | rate
 --- | --- | ---
@@ -143,7 +143,7 @@ Lengths | Frames | rate
 
 Frame CDS table contains percentage of the reads for each length and each frame. This table is later used for the preparation of heatmaps and for the detection of the monosome length by identifiying the **Length** that has highest **rate** in **Frame 0**.
 
-### File: *"Sample"*_metaprofileStart and *"Sample"*_metaprofileEnd
+### File: *"Sample"*_metaprofileStart [Download Example Table](https://github.com/ImmaginaBiotechnology/Documents/blob/main/Martian_example_Tables/Sample_metaprofileStart.csv) and *"Sample"*_metaprofileEnd [Download Example Table](https://github.com/ImmaginaBiotechnology/Documents/blob/main/Martian_example_Tables/Sample_metaprofileEnd.csv)
 
 psite_from_cds_start | rate
 --- | --- 
