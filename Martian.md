@@ -47,7 +47,7 @@ For each analysis, Martian reports multiple tables that can be used for further 
 
 !! ALL THE NUMBERS REPORTED BELOW ARE FOR PRESENTATION AND THEY DO NOT REFLECT THE REAL EXPERIMENTAL RESULTS !!
 
-### File: *"Sample"*_psiteData
+### File: *"Sample"*_psiteData [Download Example Table](https://github.com/ImmaginaBiotechnology/Documents/blob/main/Martian_example_Tables/Sample_psiteData.csv)
 
 transcript | read_start | read_end | read_len | read_id | cds_start | cds_end | min_len | psite5 | psite3 | offset | psiteFromStart | frame | read_region | codon
 --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- 
