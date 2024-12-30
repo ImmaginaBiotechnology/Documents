@@ -67,6 +67,11 @@ The results include three PCA plots: "Sample", "RNASeq", and "RiboSeq". The "Sam
 ![pca_ribo](/Visuals/PCA_RiboSeq.jpg)
 ![pca_rna](/Visuals/PCA_RNASeq.jpg)
 
+## Volcano Plot
+
+Volcano plots shows DEGs between Treatment and Control in Riboseq or RNAseq or Translation Efficiency data. Each point corresponds to a gene, plotted based on its log2 Fold Change (x-axis) and adjusted p-value (y-axis, -log10 scale, Benjamini-Hochberg method). (log2FC > 1 or log2FC < -1) and adjusted p-value <0.05.
+
+![volcano](/Visuals/VolcanoPlot.jpg)
 
 ## Directional Plot
 
@@ -74,8 +79,4 @@ This scatter plot visualizes differential gene expression between Ribo-Seq and R
 
 ![directional](/Visuals/DirectionalPlot.jpg)
 
-## Volcano Plot
 
-This volcano plot visually represents translation efficiency data. Each point corresponds to a gene, plotted based on its log2 Fold Change (x-axis) and adjusted p-value (y-axis, -log10 scale, Benjamini-Hochberg method).
-
-![volcano](/Visuals/VolcanoPlot.jpg)
