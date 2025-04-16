@@ -228,7 +228,7 @@ By analyzing this plot, researchers can understand the dynamics of translation, 
 
 ### Metaprofile Plot
 
-![metaprofile](Visuals/metaprofilePlot.svg)
+![metaprofile](Visuals/metaprofilePlot.png)
 <br />
 The metaprofile plot shows average ribosome occupancy data (p-site frequency) from all transcripts to provide a general view of ribosome behaviour at specific regions relative to key genomic landmarks (i.e., start and stop). This plot helps identify patterns of translation initiation, elongation, and termination.<br />
 The x-axis represents nucleotide positions relative to the start codon (left) or stop codon (right). Positions upstream (negative values) and downstream (positive values) of the landmark are shown. The start and stop for CDS region are highlighted by vertical dashed red lines.<br />
@@ -247,11 +247,11 @@ For the “Total-Heatmap”, signal is normalized on the total number of RPFs, w
 For both heatmaps, the most intense signal is expected in the frame 0 of CDS, for RPFs with monosome length and disome length. <br />
 
 ### Total-Heatmap
-![total_heatmap](Visuals/totalHeatmap.svg)
+![total_heatmap](Visuals/totalHeatmap.png)
 <br />
 
 ### Row-Heatmap
-![row_heatmap](Visuals/rowHeatmap.svg)
+![row_heatmap](Visuals/rowHeatmap.png)
 <br />
 ### Covered Area Plot
 
