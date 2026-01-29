@@ -195,7 +195,7 @@ In this case, the first 24 positions of the "position" column, corresponding to 
 ### Scatterplot Visualizing tRNA Abundances for Individual Samples
 In this analysis, counts from different isoacceptors of the same tRNA are combined to represent its total abundance.
 <br />
-![Scatterplot_Individual_Samples](Visuals/scatterplot_4.png)
+![Scatterplot_Individual_Samples](Visuals/scatterplot_4.svg)
 <br />
 
 
@@ -203,7 +203,7 @@ In this analysis, counts from different isoacceptors of the same tRNA are combin
 ### Heatmap Visualizing Putative tRNA Modifications in Individual Samples
 A heatmap visualizing the ratio of basecalling errors between two samples, highlighting regions with significant differences to enhance comparative analysis and interpretation.
 <br />
-![Heatmap_Individual_Samples](Visuals/heatmap_5.png)
+![Heatmap_Individual_Samples](Visuals/heatmap_5.svg)
 <br />
 
 
@@ -211,7 +211,7 @@ A heatmap visualizing the ratio of basecalling errors between two samples, highl
 PCA transforms high-dimensional data into a smaller number of principal components (PCs), which explain most of the variance.
 <br />
 
-![PCAPlot](Visuals/pca_6.png)
+![PCAPlot](Visuals/pca_6.svg)
 <br />
 
 - **Table: Comparison1_PCA.txt:** This table contains the PCA values for the specific comparison (e.g., Treatment vs. Control).
@@ -221,7 +221,7 @@ PCA transforms high-dimensional data into a smaller number of principal componen
 This scatterplot compares the mean of normalized counts (DESeq2) between two groups, such as Treatment vs. Control. The counts corresponding to the various isoacceptors of a specific tRNA are aggregated to provide a unified representation of its overall abundance.
 <br />
 
-![Scatterplot_Treated_vs_Control](Visuals/scatterplot_7.png)
+![Scatterplot_Treated_vs_Control](Visuals/scatterplot_7.svg)
 <br />
 
 - **Table Comparison1_Scatterplot_Normalized_Abundance_tRNA.txt:**This table contains the mean DESeq2-normalized counts values used to generate the scatter plot for the specific comparison (e.g., Treatment vs. Control)
@@ -232,7 +232,7 @@ This scatterplot compares the mean of normalized counts (DESeq2) between two gro
 This volcano plot illustrates the log2 fold change (log2FC) and adjusted p-value calculated on the abundances of each tRNA in the Treatment vs. Control comparison. The counts corresponding to different isoacceptors of a specific tRNA have been aggregated to provide a comprehensive representation of its overall abundance.
 <br />
 
-![Volcano_Treated_vs_Control](Visuals/volcano_8.png)
+![Volcano_Treated_vs_Control](Visuals/volcano_8.svg)
 <br />
 
 - **Table Comparison1_Volcano_DEGs_RAW_counts_tRNA.txt:**  This table contains the raw counts used to calculate differentially expressed genes (DEGs) among various tRNAs for the specified comparison (e.g., Treatment vs. Control).
@@ -251,12 +251,22 @@ This volcano plot illustrates the log2 fold change (log2FC) and adjusted p-value
 This heatmap displays the log2 fold change (log2FC) and adjusted p-value (p-adj) calculated using DESeq2 for each position of every amino acid, comparing the Treatment and Control groups.
 <br />
 
-![Heatmap_Fold_change](Visuals/heatmap_9.png)
+![Heatmap_Fold_change](Visuals/heatmap_9.svg)
 <br />
 
 - **Table: Comparison1_heatMapFull_tRNA_Modifications_DEGs.txt:** This table contains the log2 fold change (log2FC), p-value, and adjusted p-value calculated using DESeq2 for each position of every individual tRNA in the specified comparison (e.g., Treatment vs. Control). It is used to generate the heatmap.
 
 <br />
 
+### Cloverleaf Plots shows positions that reached thresholds for Log2 Fold Change (log2FC) and Adjusted p-values at the Single-Nucleotide Level from Differential tRNA Modifications Analysis Between Treated and Control Groups
+<br />
 
+![Cloverleaf Plot](Visuals/cloverleaf_10.svg)
+<br />
 
+### Coverage Plots shows single nucleotide counts per position per tRNA
+
+<br />
+![Coverage Plot](Visuals/coverage_11.svg)
+
+<br />
