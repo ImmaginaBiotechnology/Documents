@@ -261,12 +261,12 @@ This heatmap displays the log2 fold change (log2FC) and adjusted p-value (p-adj)
 ### Cloverleaf Plots shows positions that reached thresholds for Log2 Fold Change (log2FC) and Adjusted p-values at the Single-Nucleotide Level from Differential tRNA Modifications Analysis Between Treated and Control Groups
 <br />
 
-![Cloverleaf Plot](Visuals/coverleaf_10.svg)
+![Cloverleaf_Plot](Visuals/coverleaf_10.svg)
 <br />
 
 ### Coverage Plots shows single nucleotide counts per position per tRNA
 
 <br />
-![Coverage Plot](Visuals/coverage_11.svg)
 
+![Coverage_Plot](Visuals/coverage_11.svg)
 <br />
