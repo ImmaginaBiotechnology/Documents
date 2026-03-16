@@ -15,7 +15,7 @@
 Our Translation Efficiency workflow is as follows: <br />
 <br />
 
-![TE_Diagram](/Users/mattia.dalsass/Immagina/giuthub_pipelines_Immagina/Documents/Visuals/TE_Diagram.jpg)
+![TE_Diagram](./Visuals/TE_Diagram.jpg)
 
 ## Results:
 
